@@ -23,10 +23,19 @@ def countNucleotidesFreq(dna_seq):
     """
     tmp = {'A':0, 'T':0, 'C':0, 'G':0}
     if(not validateSeq(dna_seq)):
-        raise Exception("Invalid DNA Sequence")
+        raise Exception
     for nucleotide in dna_seq.upper():
         if nucleotide in tmp:
             tmp[nucleotide] += 1
     return tmp
 
         
+def transcribeDNAtoRNA(dna_seq):
+    """Transcribe a DNA sequence into an RNA sequence.
+
+        Args:
+            dna_seq (str): The DNA sequence.
+    """
+    if(not validateSeq(dna_seq)):
+        raise Exception("Invalid DNA Sequence")
+    return dna_seq.upper().replace('T', 'U')    
