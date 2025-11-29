@@ -1,0 +1,32 @@
+
+Nucleotides = ['A', 'T', 'C', 'G']
+def validateSeq(dna_seq):
+    """Validate a DNA sequence.
+
+    Args:
+        dna_seq (str): The DNA sequence to validate.
+
+    Returns:
+        bool: True if the sequence is valid, False otherwise.
+    """
+    tmp = dna_seq.upper()
+    for nucleotide in tmp:
+        if nucleotide not in Nucleotides:
+            return False
+    return tmp
+
+def countNucleotidesFreq(dna_seq):
+    """Count the occurrences of each nucleotide in a DNA sequence.
+
+        Args:
+            dna_seq (str): The DNA sequence.
+    """
+    tmp = {'A':0, 'T':0, 'C':0, 'G':0}
+    if(not validateSeq(dna_seq)):
+        raise Exception("Invalid DNA Sequence")
+    for nucleotide in dna_seq.upper():
+        if nucleotide in tmp:
+            tmp[nucleotide] += 1
+    return tmp
+
+        
